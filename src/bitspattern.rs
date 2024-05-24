@@ -70,3 +70,15 @@ impl BitsPattern{
         true
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_fit() {
+        assert!(BitsPattern::new("00000000000100000???????????????").fit(0x0010421c)); // add.w
+        assert!(BitsPattern::new("00000000000101111 ????? ????? ?????").fit(0x0017bfb7)); // srl.w
+    }
+}
